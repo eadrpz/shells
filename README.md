@@ -1,2 +1,2 @@
 # shells
-Various shell's configs
+Various shell's configs (rn just bash)
