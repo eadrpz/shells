@@ -31,7 +31,7 @@ unset rc
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\1}/'
 }
-PS1="\[\e[1;32m\](\w)\[\e[91m\$(parse_git_branch)\] \[\e[00m\]\[\e[1m\]> \[\e[00m\]"
+PS1="\[\e[1;34m\](\w)\[\e[91m\$(parse_git_branch)\] \[\e[00m\]\[\e[1m\]> \[\e[00m\]"
 # PS1="\[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 # PS1='$(basename "$PWD" |head -c1)\$ '
 # PS1='\[\e[1m\][\u@\h \W]\$ ' #bash default
@@ -55,4 +55,3 @@ alias svi='sudo nvim $1'
 alias git-user='git config --global user.name $1'
 alias git-mail='git config --global user.email $1'
 alias git-creds='git config --global credential.helper $1'
-
