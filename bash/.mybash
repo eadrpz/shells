@@ -18,11 +18,11 @@ bind 'set show-all-if-ambiguous on'
 
 # Some other aliases
 alias cls='clear'
-alias cat='bat --style=plain --paging=never' # In debian derivatives is batcat, in other it's just bat
-alias ls='eza --group-directories-first'
-alias tree='eza -T'
-alias la='eza -la --group-directories-first'
-alias l='eza -l'
+alias cat='batcat --style=plain --paging=never' # In debian derivatives is batcat, in other it's just bat
+alias ls='exa --group-directories-first'
+alias tree='exa -T'
+alias la='exa -la --group-directories-first'
+alias l='exa -l'
 alias vih='nvim .'
 alias svih='sudo nvim .'
 alias vi='nvim $1'
@@ -30,5 +30,10 @@ alias svi='sudo nvim $1'
 alias git-user='git config --global user.name $1'
 alias git-mail='git config --global user.email $1'
 alias git-creds='git config --global credential.helper $1'
-alias lsinfo='fastfetch'
+if command -v fastfetch /dev/null
+then
+    alias lsinfo='fastfetch'
+else
+    alias lsinfo='neofetch'
+fi
 alias cpuinfo='cpufetch'
