@@ -3,13 +3,17 @@
 ## MY OWN SETTINGS
 # shell
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ {\1}/'
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-PS1="\[\e[1m\]\u@\h \W\[\e[91m\$(parse_git_branch)\] \[\e[00m\]\[\e[1m\]% \[\e[00m\]"
+
+PS1="\e[1;32m\]\u@\h \W\[\e[91m\$(parse_git_branch)\] \[\e[00m\]\[\e[1m\]$ \[\e[01m\]"
 # PS1="\[\e[1;34m\](\w)\[\e[91m\$(parse_git_branch)\] \[\e[00m\]\[\e[1m\]> \[\e[00m\]"
 # PS1="\[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 # PS1='$(basename "$PWD" |head -c1)\$ '
 # PS1='\[\e[1m\][\u@\h \W]\$ ' #bash default
+
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
+# PS1='${PS1_CMD1}'
 
 # Auto Completion Case Insensitivew
 bind 'set completion-ignore-case on'
@@ -37,3 +41,5 @@ else
     alias lsinfo='neofetch'
 fi
 alias cpuinfo='cpufetch'
+
+source /home/eadrpz/git-prompt.sh
